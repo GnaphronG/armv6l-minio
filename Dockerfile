@@ -1,13 +1,12 @@
-FROM resin/armhf-alpine
+FROM armel/busybox:uclibc
 
 MAINTAINER Guillaume Goussard <guillaume.goussard@gmail.com>
 
 WORKDIR /go/src/app
 
-RUN apk add --no-cache curl && \
-    curl -s -O https://dl.minio.io/server/minio/release/linux-armv6l/minio && \
-    chmod +x ./minio
+ADD https://dl.minio.io/server/minio/release/linux-arm6vl/minio minio
 
 EXPOSE 9000
-ENTRYPOINT ["./minio"]
+ENTRYPOINT ["sh"]
+CMD ["-c", "chmod +x minio && ./minio"]
 VOLUME ["/export"]
