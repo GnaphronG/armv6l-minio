@@ -11,7 +11,7 @@ This docker image is not affiliated with [Minio.io](https://www.minio.io/)
 ### Stable
 ```
 docker pull ggoussard/armv6l-minio
-docker run -p 9000:9000 minio/minio server /export
+docker run -p 9000:9000 ggoussard/armv6l-minio server /export
 ```
 
 ## Sources
